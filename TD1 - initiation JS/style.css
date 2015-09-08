@@ -1,0 +1,25 @@
+#container {
+  float: left;
+  margin: 40px auto;
+  overflow: hidden;
+  width: 800px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+#todo-form-add {
+  font-size: 20pt;
+}
+
+#todo-list {
+  background-color: bisque;
+  margin-right: 20px;
+}
+
+#todo-form label {
+  font-weight: bold;
+  font-size: 22pt;
+}

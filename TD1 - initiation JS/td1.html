@@ -1,0 +1,36 @@
+<!DOCTYPE html><!--Indique que le fichier contient du code HTML-->
+<html lang="fr"><!--Début du code HTML, la langue de la page est française-->
+  <head><!--Début de l'en-tête de la page-->
+    <!--Indique que les caractères sont encodés en UTF-8-->
+    <meta charset="utf-8" />
+    <!--Titre de la page (visible sur la fenêtre et l'onglet)-->
+    <title>TD1 - Initiation au JS</title>
+    <!--Selectionne un fichier css pour la forme de la page-->
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <!-- Sélectionne le fichier Javascript contenant les scripts -->
+    <script src="script.js" type="text/javascript"></script>
+  </head><!--Fin de l'en-tête de la page-->
+  <body><!--Début du corps de la page HTML-->
+    <!--Titre de la page-->
+    <h1>TD1 - Initiation au JS</h1>
+    <div id="container">
+      <!-- the to-do list -->
+      <div class="column">
+        <h2>Liste de Tâches:</h2>
+        <ul id="todo-list">
+          <li>Tâche #1 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
+          <li>Tâche #2 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
+        </ul>
+      </div>
+      <!-- form pour ajouter une tâche à la liste -->
+      <div class="column">
+        <form id="todo-form">
+          <label>Ajouter une tâche</label><br/>
+          <input name="todo-form-add" id="todo-form-add" type="text" placeholder="Nouvelle tâche"><br/>
+          <input type='button' onclick='addTache()' value='Ajouter'/><br/>
+          <input type='button' onclick='saveTache()' value='Sauvegarder'/>
+        </form>
+      </div>
+    </div>
+  </body><!--Fin du corps de la page HTML-->
+</html><!--Fin du code HTML-->
