@@ -12,22 +12,40 @@
     <script>
     
     var colorCardinal = "rgb(153, 51, 51)"
-
+	
     $(document).ready(function() {
-
+	  
+	  //étape 1: Ajouter la class outlined aux boites
+	  $('.box').addClass('outlined');
+	  
       $("#button_toggle_colors").click(function() {
-        /* Ã‰tape 2 */
-        
+        //étape 2: Activer/Désactiver la couleur
+		jQuery.each( $('.box'), function( i, obj ) {
+		  var box = $(obj);
+		  if(box.css( "background-color") == colorCardinal){
+			box.css( "background-color", '');
+		  }else{
+			box.css( "background-color", colorCardinal);
+		  }
+		});
       });
 
       $("#button_toggle_roundedges").click(function() {
-        /* Ã‰tape 3*/
-        
+	    //étape 3: Activer/Désactiver les bords arondis
+		jQuery.each( $('.box'), function( i, obj ) {
+		  var box = $(obj);
+		  if(box.hasClass('round-edge')){
+			box.removeClass('round-edge');
+		  }else{
+			box.addClass('round-edge');
+		  }
+		});
       });
 
       $("#button_add_box").click(function() {
-          /* Ã‰tape 4 */
-
+	    var boxList = $('#boxes');
+		var boxNum = boxList.children().length+1;
+        boxList.append('<div id="box' + boxNum + '" class="box outlined"></div>');
       });
 
       
