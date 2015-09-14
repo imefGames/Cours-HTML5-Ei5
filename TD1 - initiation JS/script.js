@@ -9,7 +9,8 @@ function addTache() {
 	var todoList = document.getElementById("todo-list");
 	//Créé une nouvelle tâche vide
 	var node = document.createElement('li');
-	node.setAttribute('class', 'list-item');
+	node.setAttribute('draggable', 'true');
+	node.setAttribute('ondragstart', 'dragStart(event)');
 	//Ajoute le nom à la nouvelle tâche
 	node.appendChild(document.createTextNode(document.getElementById("todo-form-add").value + ' '));
 	//Créé un bouton pour supprimer la tâche
@@ -44,7 +45,6 @@ function saveTache(){
 	for(var i=0; i<element.children.length; i++){
 		localStorage.setItem("todoList"+i, element.children[i].innerHTML);
 	}
-	alert("Sauvegarde effectuée.");
 }
 
 function loadTaches(){
@@ -54,8 +54,39 @@ function loadTaches(){
 	}
 	for(var i=0; i<localStorage.length; i++){
 		var node = document.createElement('li');
+		node.setAttribute('draggable', 'true');
+		node.setAttribute('ondragstart', 'dragStart(event)');
 		node.innerHTML = localStorage.getItem('todoList'+i);
 		element.appendChild(node);
 	}
-	alert("Données chargées.");
+}
+
+var elements = [];
+
+function dragStart(event){
+
+	var index = elements.indexOf(event.target.parentNode);
+   
+    if (index == -1) {
+        // not already existing in the array, add it now
+        elements.push(event.target);
+        index = elements.length - 1;
+    }
+	
+	event.dataTransfer.effectAllowed = 'move';
+    event.dataTransfer.setData('index', index);
+}
+
+function dragOver(event){
+	event.preventDefault();
+	return false;
+}
+
+function dragDrop(event){
+
+    var element = elements[event.dataTransfer.getData('index')];
+
+    element.parentNode.removeChild(element);
+
+	return false;
 }

@@ -18,8 +18,8 @@
       <div class="column">
         <h2>Liste de Tâches:</h2>
         <ul id="todo-list">
-          <li class ="list-item">Tâche #1 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
-          <li class ="list-item">Tâche #2 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
+          <li draggable='true' ondragstart="dragStart(event)" >Tâche #1 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
+          <li draggable='true' ondragstart="dragStart(event)" >Tâche #2 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
         </ul>
       </div>
       <!-- form pour ajouter une tâche à la liste -->
@@ -28,7 +28,8 @@
           <label>Ajouter une tâche</label><br/>
           <input name="todo-form-add" id="todo-form-add" type="text" placeholder="Nouvelle tâche"><br/>
           <input type='button' onclick='addTache()' value='Ajouter'/><br/>
-          <input type='button' onclick='saveTache()' value='Sauvegarder'/>
+          <input type='button' onclick='saveTache()' value='Sauvegarder'/><br/>
+		  <input id="trash" type='button' ondragover="dragOver(event)" ondrop="dragDrop(event)" value="Corbeille"/>
         </form>
       </div>
     </div>
