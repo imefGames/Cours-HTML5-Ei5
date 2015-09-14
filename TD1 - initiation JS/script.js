@@ -11,6 +11,8 @@ function addTache() {
 	var node = document.createElement('li');
 	node.setAttribute('draggable', 'true');
 	node.setAttribute('ondragstart', 'dragStart(event)');
+		node.setAttribute('ondragover', 'dragOver(event)');
+	node.setAttribute('ondrop', 'dragDropOrdonner(event)');
 	//Ajoute le nom à la nouvelle tâche
 	node.appendChild(document.createTextNode(document.getElementById("todo-form-add").value + ' '));
 	//Créé un bouton pour supprimer la tâche
@@ -56,6 +58,8 @@ function loadTaches(){
 		var node = document.createElement('li');
 		node.setAttribute('draggable', 'true');
 		node.setAttribute('ondragstart', 'dragStart(event)');
+		node.setAttribute('ondragover', 'dragOver(event)');
+		node.setAttribute('ondrop', 'dragDropOrdonner(event)');
 		node.innerHTML = localStorage.getItem('todoList'+i);
 		element.appendChild(node);
 	}
@@ -87,6 +91,17 @@ function dragDrop(event){
     var element = elements[event.dataTransfer.getData('index')];
 
     element.parentNode.removeChild(element);
+
+	return false;
+}
+
+function dragDropOrdonner(event){
+
+    var element = elements[event.dataTransfer.getData('index')];
+
+	var tmp = event.target.innerHTML;
+	event.target.innerHTML = element.innerHTML;
+	element.innerHTML = tmp;
 
 	return false;
 }
