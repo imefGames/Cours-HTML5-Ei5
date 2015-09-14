@@ -10,7 +10,7 @@
     <!-- Sélectionne le fichier Javascript contenant les scripts -->
     <script src="script.js" type="text/javascript"></script>
   </head><!--Fin de l'en-tête de la page-->
-  <body><!--Début du corps de la page HTML-->
+  <body onload="loadTaches()"><!--Début du corps de la page HTML-->
     <!--Titre de la page-->
     <h1>TD1 - Initiation au JS</h1>
     <div id="container">
@@ -18,8 +18,8 @@
       <div class="column">
         <h2>Liste de Tâches:</h2>
         <ul id="todo-list">
-          <li>Tâche #1 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
-          <li>Tâche #2 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
+          <li class ="list-item">Tâche #1 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
+          <li class ="list-item">Tâche #2 <input class="todo-list-remove" type='button' onclick='removeTache(this)' value='Remove'/></li>
         </ul>
       </div>
       <!-- form pour ajouter une tâche à la liste -->
