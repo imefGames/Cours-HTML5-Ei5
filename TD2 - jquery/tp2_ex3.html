@@ -31,25 +31,55 @@
         margin-top: 2px;
       }
 
-      /* Etape 2: Votre code CSS doit être ici */
-      
-      /* Etape 3: Votre code CSS doit être ici */
-
+      /* Etape 2 */
+      #feedback { font-size: 1.4em; }
+	  #year_input .ui-selecting { background: #FECA40; }
+	  #year_input .ui-selected { background: #F39814; color: white; }
+	  #year_input { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+	  #year_input li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+	  
+      /* Etape 3 */
+	  #color_input { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+      #color_input li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+      #color_input li span { position: absolute; margin-left: -1.3em; }
+	  
       /* Etape 4: Votre code CSS doit être ici */
-      
+      .color-tooltip {
+		width: 50px;
+		height: 50px;
+	  }
+	  
     </style>
     
     <script>
     $(document).ready(function() {
 
-      /* Etape 1: Votre code JS doit être ici */
+      /* Etape 1: Datepicker */
+	  $(function	() {
+	    $( "#date" ).datepicker();
+	  });
 
-      /* Etape 2: Votre code JS doit être ici */
-
-      /* Etape 3: Votre code JS doit être ici */
-
-      /* Etape 4: Votre code JS doit être ici */
-
+      /* Etape 2: Selectable */
+	  $(function() {
+		$( "#year_input" ).selectable();
+	  });
+	  
+      /* Etape 3: Sortable */
+	  $(function() {
+		$( "#color_input" ).sortable();
+		$( "#color_input" ).disableSelection();
+	  });
+	  
+      /* Etape 4: Tooltip */
+	  $(function() {
+		$( document ).tooltip({
+			track: true,
+			content: function() {
+				return '<div class="color-tooltip" style="background-color: ' + $(this).text() + ';" ></div>';
+			}
+		});
+	  });
+	  
     });
     </script>
   </head>
@@ -64,34 +94,27 @@
       <label for="date">Date:</label>
       <input type="text" id="date" />
     </div>
-    <div id="year_input">
-	<h3>En quelle année êtes vous ?</h3>
-      <input type="radio" name="enroll_year" id="ugrad" value="ugrad"> 
-      <label for="ugrad">EI4</label>
-      <input type="radio" name="enroll_year" id="grad" value="grad"> 
-      <label for="grad">EI5</label>
-
+    <ol id="year_input" class="ui-selectable">
+	  <h3>En quelle année êtes vous ?</h3>
       <!-- Etape 2: Code HTML ici -->
-    </div>
+	  <li class="ui-widget-content">EI4</li>
+	  <li class="ui-widget-content">EI5</li>
+    </ol>
 
-    <div id="color_input">
+    <ul id="color_input">
       
       <h3> Classer la liste  des couleurs : de celle que vous préférez (1) à celle qui retient le moins votre attention (5).</h3>
+		
+	  <!-- Etape 3: Code HTML Ici -->
+	  <li class="ui-state-default" title=""><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff0000</li>
+	  <li class="ui-state-default" title=""><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#0000ff</li>
+	  <li class="ui-state-default" title=""><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ff00b3</li>
+	  <li class="ui-state-default" title=""><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#ded447</li>
+	  <li class="ui-state-default" title=""><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>#125e18</li>
+
       
-      <input type="text" class="rank_color" id="red" />
-      <label for="red">#ff0000</label><br/>
-      <input type="text" class="rank_color" id="blue" />
-      <label for="blue">#0000ff</label><br/>
-      <input type="text" class="rank_color" id="hot_pink" />
-      <label for="hot_pink">#ff00b3</label><br/>
-      <input type="text" class="rank_color" id="mustard" />
-      <label for="mustard">#ded447</label><br/>
-      <input type="text" class="rank_color" id="dark_green" />
-      <label for="dark_green">#125e18</label><br/>
 
-      <!-- Etape 3: Code HTML Ici -->
-
-    </div>
+    </ul>
 
   </body>
 </html>
