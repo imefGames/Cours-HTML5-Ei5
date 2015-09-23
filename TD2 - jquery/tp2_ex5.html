@@ -87,7 +87,34 @@ function getCoordinate(position,map) {
 
 
 function getCrimes(position){
+	console.log("Latitude: " + position.lat() + " - Longitude: " + position.lng());
+	
+	var urlCoord = "http://data.police.uk/api/crimes-street/all-crime?lat=" + position.lat().toFixed(6) + "&lng="+position.lng().toFixed(6);
+	
+	$.ajax({
+		url: urlCoord,
+		dataType: 'json',
+		success : function(crimes){
+			$.each(crimes,function() {
+				crime = $(this)[0];
 
+				var pos = {lat: parseFloat(crime.location.latitude), lng: parseFloat(crime.location.longitude)};
+				var marker = new google.maps.Marker({
+					position: pos,
+					map: map,
+					title: crime.category,
+				});
+				
+				marker.addListener('click', function() {
+					var c = $(this)[0];
+					$("#lat").val(c.position.lat());
+					$("#lon").val(c.position.lng());
+					$("#detail").val(c.title);
+				});
+
+			});
+		}
+	});
 }
 
 });
