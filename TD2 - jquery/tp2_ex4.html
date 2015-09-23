@@ -28,20 +28,42 @@
     $(document).ready(function() {
 
       /* Etape 1: Code JS */
-
+	  var c = $("#myCanvas").get(0);
+	  var ctx = c.getContext("2d");
+	  
+	  var path=new Path2D();
+	  path.moveTo(0, -90);
+	  path.lineTo(90, 90);
+	  path.lineTo(-90, 90);
+	  path.lineTo(0, -90);
+	  ctx.fillStyle="red";
+	  ctx.lineWidth = 3;
+	  
+	  var angleRot = 45*Math.PI/180;
+	  
       $("#button_draw_triangle").click(function() {
         /* Etape 2 : code JS */
-        
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.translate(150, 150);
+		ctx.fill(path);
+		ctx.stroke(path);
+		ctx.translate(-150, -150);
       });
 
       $("#button_draw_rotated_triangle").click(function() {
         /* Etape 3 : code JS */
-
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.translate(150, 150);
+		ctx.rotate(angleRot);
+		ctx.fill(path);
+		ctx.stroke(path);
+		ctx.rotate(-angleRot);
+		ctx.translate(-150, -150);
       });
 
       $("#button_clear_canvas").click(function() {
         /* Etape 4 : code JS */
-
+		ctx.clearRect(0, 0, c.width, c.height);
       });
       
     });
