@@ -43,7 +43,6 @@
 	  
       $("#button_draw_triangle").click(function() {
         /* Etape 2 : code JS */
-		ctx.clearRect(0, 0, c.width, c.height);
 		ctx.translate(150, 150);
 		ctx.fill(path);
 		ctx.stroke(path);
@@ -52,7 +51,6 @@
 
       $("#button_draw_rotated_triangle").click(function() {
         /* Etape 3 : code JS */
-		ctx.clearRect(0, 0, c.width, c.height);
 		ctx.translate(150, 150);
 		ctx.rotate(angleRot);
 		ctx.fill(path);
