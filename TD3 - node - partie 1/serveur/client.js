@@ -7,7 +7,7 @@
     event.preventDefault();
     socket.emit('login', {
       username  : $('#username').val(),
-      mail    : $('#mail').val()
+      mail    : $('#password').val()
     });
   })
   
@@ -22,6 +22,7 @@
   socket.on('logged',function(){
     $('#login').fadeOut();
     $('#message').focus(); //met le focus pour la saisie du message
+	$('#form').show();
   });
 
   socket.on('newmsg', function(message){
