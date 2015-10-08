@@ -1,0 +1,13 @@
+html, body {
+	height: 100%;
+}
+
+#users {
+	background-color: #aaaaaa;
+	height: 100%;
+}
+
+#form {
+	background-color: #dddddd;
+	height: 100%;
+}

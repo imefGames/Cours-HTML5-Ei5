@@ -1,7 +1,10 @@
 (function($){
 
   var socket = io.connect('http://localhost:8080');
-
+  
+  $('#users').hide();
+  $('#messages').hide();
+  $('#form').hide();
 
   $('#loginform').submit(function(event){
     event.preventDefault();
@@ -22,6 +25,8 @@
   socket.on('logged',function(){
     $('#login').fadeOut();
     $('#message').focus(); //met le focus pour la saisie du message
+	$('#users').show();
+	$('#messages').show();
 	$('#form').show();
   });
 
@@ -35,6 +40,9 @@
   
   $('#form').submit(function(event) {
     event.preventDefault();
+	if($('#message').val() == "") {
+		return;
+	}
     socket.emit('newmsg', {message: $('#message').val()});
     $('#message').val(''); //pour éviter le flood...
     $('#message').focus(); //pour remettre le focus

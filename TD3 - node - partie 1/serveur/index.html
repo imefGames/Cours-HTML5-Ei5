@@ -14,24 +14,26 @@
 
 <body>
 
-	<div id="users">
+	<div id="users" class="col-md-2" hidden>
 		<ul id="listusers"> </ul>
 	</div>
-
-	<div id="messages">
-		<div class="message" id="msgtpl" hidden>
-			<div class="info">
-				<p><strong>[<span class="date">{{h}}:{{m}}</span>] {{user.username}} : </strong> {{message}}</p>
+	<div class="col-md-10">
+		<div id="messages" hidden>
+			<div class="message" id="msgtpl" hidden>
+				<div class="info">
+					<p><strong>[<span class="date">{{h}}:{{m}}</span>] {{user.username}} : </strong> {{message}}</p>
+				</div>
 			</div>
 		</div>
+		<form action="" id="form">
+			<div class="row">
+				<div class="col-md-10"><input type="text" class="form-control" id="message" class="text" /></div>
+				<div class="col-md-2"><input type="submit" id="send" value="Envoyer mon message" class="btn btn-success" /></div>
+			</div>
+		</form>
 	</div>
-
-	<form action="" id="form" hidden>
-		<input type="text" id="message" class="text" />
-		<input type="submit" id="send" value="Envoyer mon message" class="submit" />
-	</form>
   
-  <div id="login" class="container">    
+	<div id="login" class="container">    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
 				<div class="panel-heading">
