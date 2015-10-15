@@ -1,0 +1,24 @@
+html, body {
+	height: 100%;
+}
+
+#users {
+	background-color: #aaaaaa;
+	height: 100%;
+}
+
+#form {
+	width: 80%;
+	height: 40px; 
+    position: fixed; 
+    bottom:0%;
+}
+
+#messages {
+	overflow:scroll;
+	height: 100%
+}
+
+#chat {
+	height:90%;
+}

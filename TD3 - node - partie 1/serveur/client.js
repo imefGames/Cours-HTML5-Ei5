@@ -5,6 +5,7 @@
   $('#users').hide();
   $('#messages').hide();
   $('#form').hide();
+  $('#chat').hide();
 
   $('#loginform').submit(function(event){
     event.preventDefault();
@@ -28,6 +29,7 @@
 	$('#users').show();
 	$('#messages').show();
 	$('#form').show();
+	$('#chat').show();
   });
 
   socket.on('newmsg', function(message){
